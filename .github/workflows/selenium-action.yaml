@@ -10,6 +10,7 @@ jobs:
     steps:
       - name: Checking out repo
         uses: actions/checkout@v3
+      
       - name: Setting up Python
         uses: actions/setup-python@v4
         with:
@@ -18,23 +19,18 @@ jobs:
       - name: Install Selenium
         run: pip install selenium
 
-      - name: FIRE UP THE GRID CANNON!!!
+      - name: Setup Docker Compose
         run: docker-compose -f docker-compose.yaml up -d
 
-      #- name: run grid server
-       # run: screen -d -m java -jar selenium-server-4.8.1.jar standalone
+      - name: Give Write Access to Wait for Grid Script
+        run: chmod +x wait-for-grid.sh
 
       - name: Wait for grid
         run: ./wait-for-grid.sh
       
       - name: Running the Python file
-        run: python3  Selenium_Website_Test.py
+        run: python3 test_uts_chinese_website.py
 
-      - name: KILL THE GRID!!!!
+      - name: Setdown Docker Compose
         run: docker-compose -f docker-compose.yaml down
 
-      - name: TEAM ROCKET!!!!
-        run: ./TeamRocket.sh
-
-      - name: The Legend Never Dies
-        run: ./TheLegendNeverDies.sh

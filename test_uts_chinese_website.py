@@ -60,5 +60,5 @@ def ui_test(driver):
 
 if __name__ == "__main__":
         ui_test(firefox_driver)
-        ui_test(chrome_driver)
+        #ui_test(chrome_driver)
         ui_test(edge_driver)

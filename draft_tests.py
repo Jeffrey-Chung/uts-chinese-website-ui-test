@@ -3,7 +3,7 @@ and edge on my local machine
 '''
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.action_chains import ActionChains
+
 
 # define ze options
 firefox_options = webdriver.FirefoxOptions()
@@ -33,13 +33,9 @@ def ui_test(driver):
                 print("The website has a valid certificate.")
         else:
                 print("The website does not have a valid certificate.")
-        action_chain = ActionChains(driver)
         right_arrow_key = driver.find_element(By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div/ss3-force-full-width/div/div[1]/div/div/div/div[2]/div[2]/img').click()
         left_arrow_key = driver.find_element(By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div/ss3-force-full-width/div/div[1]/div/div/div/div[2]/div[4]/img').click()
         faculty_and_course_button = driver.find_element(By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[4]/div/a/div/div[1]/picture/img').click()
-        #find_visa = driver.find_element(By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div/div/div[2]/a[1]').click()
-        #sponsorship_link = driver.find_element(By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[6]/div[1]/div/div/a')
-        #action_chain.move_to_element(sponsorship_link).click()
         driver.quit()
 
 if __name__ == "__main__":

@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 
+
 # define ze options
 firefox_options = webdriver.FirefoxOptions()
 chrome_options = webdriver.ChromeOptions()
@@ -49,6 +50,9 @@ def ui_test(driver):
         else:
                 print("The website does not have a valid certificate.")
         print("Test run successfully")
+        left_arrow_key = driver.find_element(By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div/ss3-force-full-width/div/div[1]/div/div/div/div[2]/div[4]/img').click()        
+        right_arrow_key = driver.find_element(By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div/ss3-force-full-width/div/div[1]/div/div/div/div[2]/div[2]/img').click()
+        faculty_and_course_button = driver.find_element(By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[4]/div/a/div/div[1]/picture/img').click()
         driver.quit()
 
 if __name__ == "__main__":

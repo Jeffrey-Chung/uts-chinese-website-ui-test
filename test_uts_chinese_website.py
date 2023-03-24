@@ -15,7 +15,7 @@ edge_options.add_argument("--headless")
 
 #chrome_options.add_argument("--disable-dev-shm-usage")
 
-firefox_options.add_argument("--kiosk") # Firefox is not chromium!!!  
+#firefox_options.add_argument("--kiosk") # Firefox is not chromium!!!  
 chrome_options.add_argument("--kiosk")
 edge_options.add_argument("--kiosk")
 

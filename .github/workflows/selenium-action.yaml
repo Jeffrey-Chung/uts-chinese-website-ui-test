@@ -3,7 +3,7 @@ name: Run Selenium On GitHub Action
 on:
   push:
     branches:
-      - selenium-grid
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest

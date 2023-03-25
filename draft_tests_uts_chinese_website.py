@@ -36,8 +36,8 @@ def ui_test(driver):
         action_chain = ActionChains(driver)
         #Arrow keys are not visible in google chrome
         for dot_numbers in range(5):
-                driver.find_element(By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div/ss3-force-full-width/div/div[1]/div/div/div/div[2]/div[3]/div/div[' + str(dot_numbers+1)+ ']/div').click()
-        video = driver.find_element(By.XPATH, '/html/body/div/div[1]') 
+                driver.find_element(By.XPATH, f'/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div/ss3-force-full-width/div/div[1]/div/div/div/div[2]/div[3]/div/div[3]/div').click()
+        video = driver.find_element(By.XPATH, '/html/body/div/div[1]')
         action_chain.move_to_element(video).perform()
         faculty_and_course_button = driver.find_element(By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[4]/div/a/div/div[1]/picture/img').click()
         driver.quit()

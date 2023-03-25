@@ -4,6 +4,8 @@ and edge on my local machine
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 # define ze options
 firefox_options = webdriver.FirefoxOptions()
@@ -28,19 +30,27 @@ firefox_driver.get('https://utsaustralia.cn/') #Fire up the Fox Cannon!
  
 # Run deez tests!
 def ui_test(driver):
-        #Check if the website has a valid certificate by starting with http://
-        if driver.current_url.startswith('https://'):
-                print("The website has a valid certificate.")
-        else:
-                print("The website does not have a valid certificate.")
-        action_chain = ActionChains(driver)
-        #Arrow keys are not visible in google chrome
-        for dot_numbers in range(5):
-                driver.find_element(By.XPATH, f'/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div/ss3-force-full-width/div/div[1]/div/div/div/div[2]/div[3]/div/div[3]/div').click()
-        video = driver.find_element(By.XPATH, '/html/body/div/div[1]')
-        action_chain.move_to_element(video).perform()
-        faculty_and_course_button = driver.find_element(By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[4]/div/a/div/div[1]/picture/img').click()
-        driver.quit()
+        try:
+                #Check if the website has a valid certificate by starting with http://
+                if driver.current_url.startswith('https://'):
+                        print("The website has a valid certificate.")
+                else:
+                        print("The website does not have a valid certificate.")
+                action_chain = ActionChains(driver)
+        
+                #Page may take a long time to fully load and render, if it takes > 2mins it will throw an error
+                driver.implicitly_wait(120)
+                #Arrow keys are not visible in google chrome
+                for dot_numbers in range(5):
+                        circle_icons = WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located((By.XPATH, f'/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div/ss3-force-full-width/div/div[1]/div/div/div/div[2]/div[3]/div/div[' + str(dot_numbers+1)+ ']/div'))
+        )
+                        circle_icons.click()
+                video = driver.find_element(By.XPATH, '/html/body/div/div[1]')
+                action_chain.move_to_element(video).perform()
+                faculty_and_course_button = driver.find_element(By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[4]/div/a/div/div[1]/picture/img').click()
+        finally:
+                driver.quit()
         
 if __name__ == "__main__":
         ui_test(firefox_driver)

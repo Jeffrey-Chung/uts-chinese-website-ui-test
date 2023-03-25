@@ -1,6 +1,4 @@
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.action_chains import ActionChains
 from draft_tests_uts_chinese_website import ui_test
 
 # define ze options

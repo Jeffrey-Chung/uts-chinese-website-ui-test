@@ -43,6 +43,6 @@ def ui_test(driver):
         faculty_and_course_button = driver.find_element(By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[4]/div/a/div/div[1]/picture/img').click()
         driver.quit()
         
-
-ui_test(firefox_driver)
+if __name__ == "__main__":
+        ui_test(firefox_driver)
 

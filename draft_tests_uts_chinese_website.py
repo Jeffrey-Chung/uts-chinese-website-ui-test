@@ -50,12 +50,12 @@ def ui_test(driver):
                 #This will hover to the video area but won't do anything
                 video = driver.find_element(By.XPATH, '/html/body/div/div[1]')
                 action_chain.move_to_element(video).click().perform()
-                '''The video in the commented code block below  is blocked in the grid servers, therefore code is commented'''        
+                '''The video in the commented code block below  is blocked in the grid servers, therefore code is commented        
                 play_button = WebDriverWait(driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, '/html/body/div/div[1]/div[2]/div[2]/div[1]/button[1]'))
         )
                 action_chain.move_to_element(play_button).click().perform()
-                
+                '''
                 
                 faculty_and_course_button = driver.find_element(By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[4]/div/a/div/div[1]/picture/img').click()
         finally:

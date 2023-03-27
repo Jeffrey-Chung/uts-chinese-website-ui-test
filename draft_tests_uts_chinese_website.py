@@ -12,7 +12,7 @@ firefox_options = webdriver.FirefoxOptions()
 
 
 # Headless option for github action
-#firefox_options.add_argument("--headless")
+firefox_options.add_argument("--headless")
 
 firefox_options.add_argument("--kiosk") # Firefox is not chromium!!!  
 

@@ -58,6 +58,7 @@ def ui_test(driver):
                 '''
                 
                 faculty_and_course_button = driver.find_element(By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[4]/div/a/div/div[1]/picture/img').click()
+                '''
                 contact_form_button = driver.find_element(By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div/div/div[2]/a[1]')
                 action_chain.move_to_element(contact_form_button).click().perform()
                  
@@ -72,6 +73,7 @@ def ui_test(driver):
                 #action_chain.move_to_element(school_year_dropdown_bar).click().perform()
                 year_2_button = driver.find_element(By.XPATH, f'/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div[1]/div/form/div[2]/div[4]/span/select/option[2]').click()
                 #action_chain.move_to_element(year_2_button).click().perform()
+                '''
 
         finally:
                 driver.quit()

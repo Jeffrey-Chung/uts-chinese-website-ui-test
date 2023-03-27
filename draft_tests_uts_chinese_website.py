@@ -27,7 +27,6 @@ options=firefox_options
 
 firefox_driver.get('https://utsaustralia.cn/') #Fire up the Fox Cannon!
 
- 
 # Run deez tests!
 def ui_test(driver):
         try:
@@ -66,7 +65,7 @@ def ui_test(driver):
                #action_chain.move_to_element(contact_form_button).click().perform()
         
                 #Fills in the details of the contact form, each variable represents each field
-                
+                '''This code onwards can only be run in non-headless mode'''
                 name = WebDriverWait(driver, 20).until(
                 EC.element_to_be_clickable((By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div[1]/div/form/div[2]/div[1]/span/input'))
         ).send_keys("Jane Smith")
@@ -81,19 +80,25 @@ def ui_test(driver):
         ).send_keys("svcbnmjhtgfd@gmail.com")
                 #action_chain.move_to_element(email).send_keys("svcbnmjhtgfd@gmail.com").perform()
                 
-                school_year_dropdown_bar = WebDriverWait(driver, 40).until(
-                EC.element_to_be_clickable((By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div[1]/div/form/div[2]/div[4]/span/select'))
-        ).click()
-                #year_2_button = WebDriverWait(driver, 40).until(
-                #EC.element_to_be_clickable((By.XPATH, f'/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div[1]/div/form/div[2]/div[4]/span/select/option[2]'))
-        #).click()
-
+                enquiry_text = WebDriverWait(driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div[1]/div/form/div[2]/div[9]/span/textarea'))
+        ).send_keys("THIS IS JUST FOR TESTING")
                 
+                captcha = WebDriverWait(driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, '//html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div[1]/div/form/div[2]/div[10]/span/input'))
+        ).send_keys("1234")
+                
+                marketing_checkbox = WebDriverWait(driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div[1]/div/form/div[2]/div[11]/span/span/span/label/input'))
+        ).click()
+                age_checkbox = WebDriverWait(driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div[1]/div/form/div[2]/div[12]/span/span/span/label/input'))
+        ).click()
 
         finally:
                 driver.quit()
                 
-        
+
 if __name__ == "__main__":
         ui_test(firefox_driver)
 

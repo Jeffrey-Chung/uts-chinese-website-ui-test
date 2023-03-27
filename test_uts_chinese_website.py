@@ -11,6 +11,7 @@ edge_options = webdriver.EdgeOptions()
 #function to set same options for each browser
 def set_options(driver_options):
         #driver_options.add_argument("--headless")
+        driver_options.add_argument("--ignore-certificate-errors")
         driver_options.add_argument("--kiosk")
 
 set_options(firefox_options)

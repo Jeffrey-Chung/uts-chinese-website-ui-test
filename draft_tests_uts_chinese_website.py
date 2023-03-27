@@ -1,5 +1,5 @@
-'''This script is purely to try out tests to be run on test_uts_chinese_website script as I have not installed chrome
-and edge on my local machine
+'''This script has all my tests on it and will be imported to test_uts_chinese_website. It will also be tested on my local machine 
+and not run on GitHub Actions
 '''
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -7,17 +7,17 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-# define ze options
+
 firefox_options = webdriver.FirefoxOptions()
 
 
-# Headless option for github action
+#Headless option for github action
 #firefox_options.add_argument("--headless")
 
 firefox_options.add_argument("--kiosk") # Firefox is not chromium!!!  
 
 
-# Point me in the right direction baby!
+#Configure the driver
 firefox_driver = webdriver.Remote( 
 command_executor="http://localhost:4444",
 options=firefox_options
@@ -96,6 +96,7 @@ def ui_test(driver):
         ).click()
 
         finally:
+                print(driver.current_url)
                 driver.quit()
                 
 

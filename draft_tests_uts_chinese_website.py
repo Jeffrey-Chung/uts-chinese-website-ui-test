@@ -58,10 +58,12 @@ def ui_test(driver):
                 '''
                 
                 faculty_and_course_button = driver.find_element(By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[4]/div/a/div/div[1]/picture/img').click()
-                '''
-                contact_form_button = driver.find_element(By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div/div/div[2]/a[1]')
+                
+                contact_form_button = WebDriverWait(driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div/div/div[2]/a[1]'))
+        )
                 action_chain.move_to_element(contact_form_button).click().perform()
-                 
+                '''
                 #Fills in the details of the contact form, each variable represents each field
                 name = driver.find_element(By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div[1]/div/form/div[2]/div[1]/span/input').send_keys("Jane Smith").perform()
                 #action_chain.move_to_element(name)

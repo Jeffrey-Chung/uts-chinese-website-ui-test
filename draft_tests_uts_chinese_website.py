@@ -97,11 +97,9 @@ def ui_test(driver):
         ).click()
                #action_chain.move_to_element(contact_form_button).click().perform()
                 fill_survey(driver)
-                find_agent_button = WebDriverWait(driver, 30).until(
-                EC.element_to_be_clickable((By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div/div/div[2]/a[2]'))
-        )
-                driver.execute_script("arguments[0].click();", find_agent_button)
-        
+                driver.back()
+                world_rankings_button = driver.find_element(By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[5]/div/a/div/div[1]/picture/img').click()
+
 
 
         finally:

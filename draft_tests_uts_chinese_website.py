@@ -52,9 +52,10 @@ def fill_survey(driver):
         ).send_keys("1234")
                 
                 age_checkbox = WebDriverWait(driver, 10).until(
-                EC.element_to_be_selected((By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div[1]/div/form/div[2]/div[12]/span/span/span/label/input'))
+                EC.element_to_be_clickable((By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div[1]/div/form/div[2]/div[12]/span/span/span/label/input'))
         )
-                action_chain.move_to_element(age_checkbox).click().perform()
+                driver.execute_script("arguments[0].click();", age_checkbox)
+
 
 
 # Run deez tests!

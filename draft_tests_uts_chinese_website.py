@@ -108,7 +108,11 @@ def ui_test(driver):
         ).click()
                 #Clicks on the side bars at the top of each page
                 pathway_sidebar = WebDriverWait(driver, 30).until(
-                EC.presence_of_element_located((By.XPATH, "/html/body/div[4]/header/div/div/nav/ul/li[4]"))
+                EC.visibility_of_element_located((By.XPATH, "/html/body/div[4]/header/div/div/nav/ul/li[4]"))
+        ).click()
+                print(pathway_sidebar)
+                english_course = WebDriverWait(driver, 30).until(
+                EC.visibility_of_element_located((By.XPATH, "/html/body/div[5]/div[2]/main/div/article/div/div/div[11]/div/p[3]/a"))
         ).click()
 
 

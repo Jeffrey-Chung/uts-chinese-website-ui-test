@@ -114,6 +114,10 @@ def ui_test(driver):
                 course_plan = WebDriverWait(driver, 30).until(
                 EC.visibility_of_element_located((By.XPATH, "/html/body/div[5]/div[2]/main/div/article/div/div/div[4]/div[1]/div/div[2]/div"))
         ).click()
+                
+                how_to_apply_sidebar = WebDriverWait(driver, 30).until(
+                EC.visibility_of_element_located((By.XPATH, "/html/body/div[4]/header/div/div/nav/ul/li[5]"))
+        ).click()
 
 
 

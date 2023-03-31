@@ -125,6 +125,7 @@ def ui_test(driver):
         finally:
                 print(driver.current_url)
                 driver.quit()
+        return "Test completed"
                 
 
 if __name__ == "__main__":

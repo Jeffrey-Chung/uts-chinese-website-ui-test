@@ -110,9 +110,8 @@ def ui_test(driver):
                 pathway_sidebar = WebDriverWait(driver, 30).until(
                 EC.visibility_of_element_located((By.XPATH, "/html/body/div[4]/header/div/div/nav/ul/li[4]"))
         ).click()
-                print(pathway_sidebar)
                 english_course = WebDriverWait(driver, 30).until(
-                EC.visibility_of_element_located((By.XPATH, "/html/body/div[5]/div[2]/main/div/article/div/div/div[11]/div/p[3]/a"))
+                EC.visibility_of_element_located((By.ID, "moove_gdpr_cookie_info_bar"))
         ).click()
 
 

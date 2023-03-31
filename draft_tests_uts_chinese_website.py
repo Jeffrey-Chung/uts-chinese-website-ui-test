@@ -103,9 +103,13 @@ def ui_test(driver):
                #action_chain.move_to_element(contact_form_button).click().perform()
                 fill_survey(driver)
                 driver.back()
-                world_rankings_button = driver.find_element(By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[5]/div/a/div/div[1]/picture/img').click()         
+                world_rankings_button = WebDriverWait(driver, 30).until(
+                EC.element_to_be_clickable((By.XPATH, "/html/body/div[5]/div[2]/main/div/article/div/div/div[5]/div/a/div/div[1]/picture/img"))
+        ).click()
                 #Clicks on the side bars at the top of each page
-                pathway_sidebar = driver.find_element(By.XPATH, "/html/body/div[4]/header/div/div/nav/ul/li[4]").click()
+                pathway_sidebar = WebDriverWait(driver, 30).until(
+                EC.element_to_be_clickable((By.XPATH, "/html/body/div[4]/header/div/div/nav/ul/li[4]"))
+        ).click()
 
 
 

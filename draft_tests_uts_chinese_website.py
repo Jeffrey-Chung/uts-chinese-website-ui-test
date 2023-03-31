@@ -109,7 +109,7 @@ def ui_test(driver):
                 EC.visibility_of_element_located((By.XPATH, "/html/body/div[4]/header/div/div/nav/ul/li[4]"))
         ).click()
                 english_course = WebDriverWait(driver, 30).until(
-                EC.visibility_of_element_located((By.XPATH, "/html/body/div[5]/div[2]/main/div/article/div/div/div[11]/div/p[3]/a"))
+                EC.visibility_of_element_located((By.XPATH, '//a[@href="'+"/english-courses/"+'"]'))
         ).click()
                 course_plan = WebDriverWait(driver, 30).until(
                 EC.visibility_of_element_located((By.XPATH, "/html/body/div[5]/div[2]/main/div/article/div/div/div[4]/div[1]/div/div[2]/div"))

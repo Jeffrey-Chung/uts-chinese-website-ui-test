@@ -26,9 +26,9 @@ options=firefox_options
 
 firefox_driver.get('https://utsaustralia.cn/') #Fire up the Fox Cannon!
 
+#Fills in the details of the contact form, each variable represents each field
 def fill_survey(driver):
                 action_chain = ActionChains(driver)
-                        #Fills in the details of the contact form, each variable represents each field
                 '''This code onwards can only be run in non-headless mode'''
                 name = WebDriverWait(driver, 20).until(
                 EC.element_to_be_clickable((By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div[1]/div/form/div[2]/div[1]/span/input'))
@@ -114,11 +114,12 @@ def ui_test(driver):
                 how_to_apply_sidebar = WebDriverWait(driver, 40).until(
                 EC.visibility_of_element_located((By.XPATH, "/html/body/div[4]/header/div/div/nav/ul/li[5]"))
         ).click()
-                 #Clicks on the how to uts news side bar at the top of each page
+                 #Clicks on the uts news side bar at the top of each page
                 uts_news_sidebar = WebDriverWait(driver, 30).until(
                 EC.visibility_of_element_located((By.XPATH, "/html/body/div[4]/header/div/div/nav/ul/li[6]"))
         ).click()
                 
+                #Search "uts" on the search bar
                 search_icon = WebDriverWait(driver, 60).until(
                 EC.visibility_of_element_located((By.ID, "search_switch_button"))
         ).click()
@@ -130,8 +131,14 @@ def ui_test(driver):
                 submit_search = WebDriverWait(driver, 60).until(
                 EC.visibility_of_element_located((By.XPATH, '//*[@id="search_submit"]'))
         ).click()
+                
+                #Go back to the original loaded page to finish the test
+                uts_icon = WebDriverWait(driver, 30).until(
+                        EC.visibility_of_element_located((By.XPATH, "/html/body/div[2]/div/div/div[1]/a/img"))
+                ).click()
         
         finally:
+                #prints the url that was last loaded
                 print(driver.current_url)
                 driver.quit()
 

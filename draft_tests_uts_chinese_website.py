@@ -108,16 +108,13 @@ def ui_test(driver):
                 pathway_sidebar = WebDriverWait(driver, 30).until(
                 EC.visibility_of_element_located((By.XPATH, "/html/body/div[4]/header/div/div/nav/ul/li[4]"))
         ).click()
-                english_course = WebDriverWait(driver, 30).until(
-                EC.visibility_of_element_located((By.XPATH, '//a[@href="'+"/english-courses/"+'"]'))
-        ).click()
-                course_plan = WebDriverWait(driver, 30).until(
-                EC.visibility_of_element_located((By.XPATH, "/html/body/div[5]/div[2]/main/div/article/div/div/div[4]/div[1]/div/div[2]/div"))
-        ).click()
-                
+                #Clicks on the side bars at the top of each page
                 how_to_apply_sidebar = WebDriverWait(driver, 30).until(
                 EC.visibility_of_element_located((By.XPATH, "/html/body/div[4]/header/div/div/nav/ul/li[5]"))
         ).click()
+
+        
+        
 
 
 
@@ -125,7 +122,7 @@ def ui_test(driver):
         finally:
                 print(driver.current_url)
                 driver.quit()
-        return "Test completed"
+
                 
 
 if __name__ == "__main__":

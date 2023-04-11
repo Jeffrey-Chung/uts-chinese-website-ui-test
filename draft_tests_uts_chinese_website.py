@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.keys import Keys
 
 
 firefox_options = webdriver.FirefoxOptions()
@@ -104,14 +104,33 @@ def ui_test(driver):
                 world_rankings_button = WebDriverWait(driver, 30).until(
                 EC.element_to_be_clickable((By.XPATH, "/html/body/div[5]/div[2]/main/div/article/div/div/div[5]/div/a/div/div[1]/picture/img"))
         ).click()
-                #Clicks on the side bars at the top of each page
+                #Clicks on the course pathway side bar at the top of each page
                 pathway_sidebar = WebDriverWait(driver, 30).until(
                 EC.visibility_of_element_located((By.XPATH, "/html/body/div[4]/header/div/div/nav/ul/li[4]"))
         ).click()
-                #Clicks on the side bars at the top of each page
+                #Clicks on the how to apply side bar at the top of each page
                 how_to_apply_sidebar = WebDriverWait(driver, 30).until(
                 EC.visibility_of_element_located((By.XPATH, "/html/body/div[4]/header/div/div/nav/ul/li[5]"))
         ).click()
+                 #Clicks on the how to uts news side bar at the top of each page
+                uts_news_sidebar = WebDriverWait(driver, 30).until(
+                EC.visibility_of_element_located((By.XPATH, "/html/body/div[4]/header/div/div/nav/ul/li[6]"))
+        ).click()
+                
+                search_icon = WebDriverWait(driver, 30).until(
+                EC.visibility_of_element_located((By.ID, "search_switch_button"))
+        ).click()
+                
+
+                search_text_field = WebDriverWait(driver, 30).until(
+                        EC.visibility_of_element_located((By.ID, "search"))
+                ).send_keys("uts")
+                
+                
+                
+
+
+                
 
         
         

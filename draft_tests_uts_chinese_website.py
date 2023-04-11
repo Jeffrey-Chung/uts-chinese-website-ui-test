@@ -44,7 +44,7 @@ def fill_survey(driver):
         ).send_keys("svcbnmjhtgfd@gmail.com")
                 #action_chain.move_to_element(email).send_keys("svcbnmjhtgfd@gmail.com").perform()
 
-                year_2_option = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div[1]/div/form/div[2]/div[4]/span/select/option[2]"))).click()
+                year_2_option = WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div[1]/div/form/div[2]/div[4]/span/select/option[2]"))).click()
 
                 enquiry_text = WebDriverWait(driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div[1]/div/form/div[2]/div[9]/span/textarea'))
@@ -54,7 +54,7 @@ def fill_survey(driver):
                 EC.element_to_be_clickable((By.XPATH, '//html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div[1]/div/form/div[2]/div[10]/span/input'))
         ).send_keys("1234")
                 
-                age_checkbox = WebDriverWait(driver, 10).until(
+                age_checkbox = WebDriverWait(driver, 20).until(
                 EC.element_to_be_clickable((By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div[1]/div/form/div[2]/div[12]/span/span/span/label/input'))
         )
                 driver.execute_script("arguments[0].click();", age_checkbox)

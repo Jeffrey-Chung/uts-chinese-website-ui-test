@@ -117,7 +117,7 @@ def ui_test(driver):
                 EC.visibility_of_element_located((By.XPATH, "/html/body/div[4]/header/div/div/nav/ul/li[6]"))
         ).click()
                 
-                search_icon = WebDriverWait(driver, 30).until(
+                search_icon = WebDriverWait(driver, 60).until(
                 EC.visibility_of_element_located((By.ID, "search_switch_button"))
         ).click()
                 

@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.keys import Keys
+
 
 
 firefox_options = webdriver.FirefoxOptions()
@@ -85,6 +85,7 @@ def ui_test(driver):
                 #This will hover to the video area but won't do anything
                 video = driver.find_element(By.XPATH, '/html/body/div/div[1]')
                 action_chain.move_to_element(video).click().perform()
+                
                 '''The code block is commented below because the video is blocked in the grid servers=     
                 play_button = WebDriverWait(driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, '/html/body/div/div[1]/div[2]/div[2]/div[1]/button[1]'))
@@ -93,12 +94,13 @@ def ui_test(driver):
                 '''
                 
                 faculty_and_course_button = driver.find_element(By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[4]/div/a/div/div[1]/picture/img').click()
-                 #Page may take a long time to fully load and render, if it takes > 2mins it will throw an error
+                
+                #Page may take a long time to fully load and render, if it takes > 2mins it will throw an error
                 driver.implicitly_wait(120)
                 contact_form_button = WebDriverWait(driver, 30).until(
                 EC.element_to_be_clickable((By.XPATH, '/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div/div/div[2]/a[1]'))
         ).click()
-               #action_chain.move_to_element(contact_form_button).click().perform()
+               
                 fill_survey(driver)
                 driver.back()
                 world_rankings_button = WebDriverWait(driver, 30).until(
@@ -121,28 +123,17 @@ def ui_test(driver):
                 EC.visibility_of_element_located((By.ID, "search_switch_button"))
         ).click()
                 
-
                 search_text_field = WebDriverWait(driver, 30).until(
                         EC.visibility_of_element_located((By.ID, "search"))
                 ).send_keys("uts")
                 
-                
-                
-
-
-                
-
+                submit_search = WebDriverWait(driver, 60).until(
+                EC.visibility_of_element_located((By.ID, "search_submit"))
+        ).click()
         
-        
-
-
-
-
         finally:
                 print(driver.current_url)
                 driver.quit()
-
-                
 
 if __name__ == "__main__":
         ui_test(firefox_driver)

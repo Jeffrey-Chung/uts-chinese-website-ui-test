@@ -111,7 +111,7 @@ def ui_test(driver):
                 EC.visibility_of_element_located((By.XPATH, "/html/body/div[4]/header/div/div/nav/ul/li[4]"))
         ).click()
                 #Clicks on the how to apply side bar at the top of each page
-                how_to_apply_sidebar = WebDriverWait(driver, 30).until(
+                how_to_apply_sidebar = WebDriverWait(driver, 40).until(
                 EC.visibility_of_element_located((By.XPATH, "/html/body/div[4]/header/div/div/nav/ul/li[5]"))
         ).click()
                  #Clicks on the how to uts news side bar at the top of each page
@@ -128,7 +128,7 @@ def ui_test(driver):
                 ).send_keys("uts")
                 
                 submit_search = WebDriverWait(driver, 60).until(
-                EC.visibility_of_element_located((By.ID, "search_submit"))
+                EC.visibility_of_element_located((By.XPATH, '//*[@id="search_submit"]'))
         ).click()
         
         finally:

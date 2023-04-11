@@ -134,7 +134,7 @@ def ui_test(driver):
                 
                 #Go back to the original loaded page to finish the test
                 uts_icon = WebDriverWait(driver, 30).until(
-                        EC.visibility_of_element_located((By.XPATH, "/html/body/div[2]/div/div/div[1]/a/img"))
+                        EC.visibility_of_element_located((By.XPATH, '//*[@id="utsFixedTopBar"]/div/div/div[1]/a/img'))
                 ).click()
         
         finally:

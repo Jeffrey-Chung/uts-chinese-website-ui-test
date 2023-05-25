@@ -74,16 +74,13 @@ def ui_test(driver):
                 action_chain = ActionChains(driver)
         
                 #Page may take a long time to fully load and render, if it takes > 2mins it will throw an error
-                #driver.implicitly_wait(120)
+                driver.implicitly_wait(120)
                 #Arrow keys are not visible in google chrome
-                circle_icon_addresses = []
                 for dot_numbers in range(1, 5):
                         address = f"/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/ss3-force-full-width/div/div[1]/div/div/div/div[2]/div[3]/div/div[{dot_numbers}]/div"
-                        circle_icon_addresses.append(address)
-                for circle_icon_address in circle_icon_addresses:
-                        circle_icon = driver.find_element(By.XPATH, circle_icon_address)
+                        circle_icon = driver.find_element(By.XPATH, address)
                         driver.execute_script("arguments[0].click();", circle_icon)
-                        #action_chain.move_to_element(circle_icon).click().perform()
+                        
                 
                         
                 

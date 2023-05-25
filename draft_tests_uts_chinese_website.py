@@ -74,13 +74,18 @@ def ui_test(driver):
                 action_chain = ActionChains(driver)
         
                 #Page may take a long time to fully load and render, if it takes > 2mins it will throw an error
-                driver.implicitly_wait(120)
+                #driver.implicitly_wait(120)
                 #Arrow keys are not visible in google chrome
-                for dot_numbers in range(5):
-                        circle_icon = WebDriverWait(driver, 10).until(
-                EC.element_to_be_clickable((By.XPATH, f'/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/div/ss3-force-full-width/div/div[1]/div/div/div/div[2]/div[3]/div/div[' + str(dot_numbers+1)+ ']/div'))
-        )
-                        action_chain.move_to_element(circle_icon).click().perform()
+                circle_icon_addresses = []
+                for dot_numbers in range(1, 5):
+                        address = f"/html/body/div[5]/div[2]/main/div/article/div/div/div[1]/ss3-force-full-width/div/div[1]/div/div/div/div[2]/div[3]/div/div[{dot_numbers}]/div"
+                        circle_icon_addresses.append(address)
+                for circle_icon_address in circle_icon_addresses:
+                        circle_icon = driver.find_element(By.XPATH, circle_icon_address)
+                        driver.execute_script("arguments[0].click();", circle_icon)
+                        #action_chain.move_to_element(circle_icon).click().perform()
+                
+                        
                 
                 #This will hover to the video area but won't do anything
                 video = driver.find_element(By.XPATH, '/html/body/div/div[1]')

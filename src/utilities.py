@@ -1,30 +1,27 @@
-'''This script has all my tests on it and will be imported to test_uts_chinese_website. It will also be tested on my local machine 
-and not run on GitHub Actions
-'''
+'''This script stores all the common functions between the 3 test files. Including setup the drivers and the tests itself'''
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+#function to set same options for each browser
+def set_options(driver_options):
+        #driver_options.add_argument("--headless")
+        driver_options.add_argument("--ignore-certificate-errors")
+        driver_options.add_argument("--kiosk")
 
 
-firefox_options = webdriver.FirefoxOptions()
+#Function to configure settings for each driver
+def setup_driver(driver_options):
+        driver = webdriver.Remote( 
+        command_executor="http://localhost:4444",
+        options=driver_options
+        )
 
-
-#Headless option for github action
-#firefox_options.add_argument("--headless")
-
-firefox_options.add_argument("--kiosk") # Firefox is not chromium!!!  
-
-
-#Configure the driver
-firefox_driver = webdriver.Remote( 
-command_executor="http://localhost:4444",
-options=firefox_options
-)
-
-firefox_driver.get('https://utsaustralia.cn/') #Fire up the Fox Cannon!
+        #Load the uts website
+        driver.get('https://utsaustralia.cn/')
+        return driver
 
 #Fills in the details of the contact form, each variable represents each field
 def fill_survey(driver):
@@ -143,7 +140,3 @@ def ui_test(driver):
                 #prints the url that was last loaded
                 print(driver.current_url)
                 driver.quit()
-
-if __name__ == "__main__":
-        ui_test(firefox_driver)
-

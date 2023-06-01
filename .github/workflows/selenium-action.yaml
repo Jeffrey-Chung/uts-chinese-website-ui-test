@@ -3,7 +3,7 @@ name: Run Selenium On GitHub Action
 on:
   push:
     branches:
-      - new_test_workflow
+      - main
   workflow_dispatch: 
     
 jobs:

@@ -9,7 +9,7 @@ on:
 jobs:
   firefox_tests:
     runs-on: ubuntu-latest
-    if: ${{ always() }}
+    if: always() && !cancelled()
     steps:
       - name: Checking out repo
         uses: actions/checkout@v3
@@ -39,7 +39,7 @@ jobs:
   
   chrome_tests:
     runs-on: ubuntu-latest
-    if: ${{ always() }}
+    if: always() && !cancelled()
     steps:
       - name: Checking out repo
         uses: actions/checkout@v3
@@ -69,7 +69,7 @@ jobs:
 
   edge_tests:
     runs-on: ubuntu-latest
-    if: ${{ always() }}
+    if: always() && !cancelled()
     steps:
       - name: Checking out repo
         uses: actions/checkout@v3

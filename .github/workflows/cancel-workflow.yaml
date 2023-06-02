@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
+      - uses: actions/checkout@v3
       - uses: styfle/cancel-workflow-action
         with:
-          workflow_id: 5152358125
+          workflow_id: 5152358125, 5152319783, 5151810668

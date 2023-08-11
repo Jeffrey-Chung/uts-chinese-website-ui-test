@@ -45,7 +45,7 @@ def fill_survey(driver):
 
                 when_to_start = WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[5]/div[2]/main/div/article/div/div/div[2]/form/div[3]/div[2]/span/select/option[7]"))).click()
 
-                i_am_high_school_student = WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[5]/div[2]/main/div/article/div/div/div[2]/form/div[3]/div[3]/span/select/option[2]"))).click()
+                i_am_uni_student = WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[5]/div[2]/main/div/article/div/div/div[2]/form/div[3]/div[3]/span/select/option[4]"))).click()
 
                 am_i_eligible = WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[5]/div[2]/main/div/article/div/div/div[2]/form/div[5]/div[3]/span/select/option[3]"))).click()
 
